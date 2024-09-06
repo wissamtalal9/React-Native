@@ -1,0 +1,123 @@
+to install react native : npx create-expo-app@latest "name of project"
+to run the projects use : npm start
+install CoreComponents : npx create-expo-app@latest CoreComponents--templateblank@sdk-49
+................
+when we use CoreComponents in andriod 
+- <View> -> Non Scrolling <div>
+- <Text> -> <p>
+- <ViewImage> -> <img />
+-<BackImageBackground> - > make background Image
+..............
+there is 3 type of image in native 
+1- const LogoImg = require('./adaptive-icon.png');
+  <Image source={LogoImg} style={{width:300, height:300}} />
+
+2 <Image source={{ uri : "https://picsum.photos/700"}} style={{width:300, height:300}}/> */}
+3 <ImageBackground source={LogoImg} style={{flex:1}}></ImageBackground>
+4 <ScrollView> -> Make the phone work in like scroll when i use it
+.............
+<Button
+          title="support"
+          onPress={() => console.log("Press Button")}
+          color={"midnightblue"}
+        />
+.............
+<Modal
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+        animationType="slide" // none , fade, slide
+        presentationStyle="pagesheet" // fullscreen, formsheet, pagesheet
+      >
+</Modal>
+.............
+    <StatusBar
+            backgroundColor="lightgreen"
+            barStyle="light-content"
+            hidden
+          />
+.............
+ActivityIndicator : it's used the lowed page when i loaded
+
+<ActivityIndicator size="large" color="red" animating={true} />
+
+.............
+Flex : 
+flex: 1,
+    alignItems: "baseline",
+    flexDirection: "row-reverse",
+    justifyContent: "space-around",
+
+    alignItems
+    alignSelf
+    flexwrap
+    alignContent
+   
+    rowGap: 20,
+    columnGap: 30,
+    gap: 10,
+
+    flexBasis:140
+    flexShrink
+.............
+fowe Dimenstion must use this for easy way :
+
+useWindowDimensions
+.............
+When We use multimple phone we pot in topic the Safe Area 
+To make shure the area bign it's same
+SafeAreaView
+.............
+To Render The Data From file.json there is 2 way 
+1= Map Method 
+        {PokemonData.map((pokemon, index) => (
+          <View style={styles.Card} key={index}>
+            <Text style={styles.Text}>{pokemon.name}</Text>
+            <Text style={styles.Text}>{pokemon.type}</Text>
+          </View>
+        ))}
+2= FlatList Components 
+ <FlatList
+        data={PokemonData}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.Card} key={item.id}>
+              <Text style={styles.Text}>{item.name}</Text>
+              <Text style={styles.Text}>{item.type}</Text>
+            </View>
+          );
+        }}
+        keyExtractor={(item) => item.id.toString()}
+        //  horizontal
+      />
+              ItemSeparatorComponent={<View style={{ height: 20 }} />}
+        //  horizontal
+        ListEmptyComponent={<Text>NO Item's It's Founded</Text>}
+
+         ListEmptyComponent={
+          <Text style={styles.ListEmpty}>NO Item's It's Founded</Text>
+        }
+        ListHeaderComponent={
+          <Text style={styles.HeaderList}>🎉 Pokemon List 🎉</Text>
+        }
+        ListFooterComponent={
+          <Text style={styles.FooterList}>🎉 End Of The List 🎉</Text>
+        }
+
+
+.............
+import { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Button,
+  Pressable,
+  Modal,
+  FlatList,
+  StyleSheet,
+} from "react-native";
+............................. Emojji 
+https://dreamyguy.github.io/react-emojis/
+.............................
